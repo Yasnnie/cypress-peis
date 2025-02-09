@@ -1,10 +1,11 @@
 describe('Cadastro de Disciplinas', () => {
   beforeEach(() => {
-    cy.login("tester_coordinator@gmail.com", "123deoliveira4")
-    cy.visit("/academics/subjects/create/")
-  });
+    cy.login("tester_coordinator@gmail.com", "123deoliveira4");
+
+  })
 
   it('Todos os campos nulos', () => {
+    cy.visit("/academics/subjects/create/");
     cy.contains("button", "Salvar").click()
     cy.get("input[name = 'name']")
       .then(($input) => {
@@ -13,13 +14,14 @@ describe('Cadastro de Disciplinas', () => {
   })
 
   it('Todos os campos válidos', () => {
+    cy.registrarCursoDefault()
+    cy.visit("/academics/subjects/create/");
+    
     cy.get("input[name = 'name']").type("Informática Básica")
     cy.contains('div', 'Curso teste grupo 6').first()
       .find('label')
       .click();
-
     cy.get("label[for = 'Semestral']").click()
-
     cy.get("textarea[id = 'id_objective']").type("Objetivos")
     cy.get("textarea[id = 'id_content']").type("Conteúdo")
     cy.get("textarea[id = 'id_methodology']").type("Metodologias")

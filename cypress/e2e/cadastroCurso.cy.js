@@ -6,12 +6,7 @@ describe('Cadastro de Curos', () => {
 
   it('Todos os campos válidos', () => {
 
-    cy.get("input[id = 'id_name']").type("Curso teste grupo 6")
-    cy.get("select[id = 'id_period']").select("MORNING")
-    cy.get("input[id = 'id_number_of_periods']").type("7")
-    cy.get("select[id = 'id_duration_type']").select("SEMESTER")
-    cy.get("select[id = 'id_course_type']").select("Curso Superior de Tecnologia")
-    cy.get("button").contains("Salvar").click()
+    cy.registrarCursoDefault();
     cy.contains('p', 'O curso foi cadastrado com sucesso.').should('be.visible');
   })
 
