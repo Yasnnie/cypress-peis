@@ -6,7 +6,7 @@ describe('Cadastro de Curos', () => {
 
   it('Todos os campos válidos', () => {
 
-    cy.get("input[id = 'id_name']").type("Análise e Desenvolvimento de Sistemas")
+    cy.get("input[id = 'id_name']").type("Curso teste grupo 6")
     cy.get("select[id = 'id_period']").select("MORNING")
     cy.get("input[id = 'id_number_of_periods']").type("7")
     cy.get("select[id = 'id_duration_type']").select("SEMESTER")
@@ -29,7 +29,7 @@ describe('Cadastro de Curos', () => {
 
   it('Sem a duração do curso', () => {
 
-    cy.get("input[id = 'id_name']").type("Análise e Desenvolvimento de Sistemas")
+    cy.get("input[id = 'id_name']").type("Curso teste grupo 6")
     cy.get("select[id = 'id_period']").select("MORNING")
     cy.get("input[id = 'id_number_of_periods']").type("7")
     cy.get("select[id = 'id_course_type']").select("Curso Superior de Tecnologia")
