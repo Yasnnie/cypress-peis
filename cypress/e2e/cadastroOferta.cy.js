@@ -1,9 +1,9 @@
 describe('Cadastro de Oferta', () => {
   beforeEach(() => {
     cy.login("tester_coordinator@gmail.com", "123deoliveira4");
-    // cy.registrarCursoDefault()
-    // cy.registrarDisciplinaDefault()
-    // cy.registrarProfessorDefault()
+    cy.registrarCursoDefault()
+    cy.registrarDisciplinaDefault()
+    cy.registrarProfessorDefault()
     cy.visit('/academics/offers/create/')
   });
 
@@ -23,7 +23,7 @@ describe('Cadastro de Oferta', () => {
       });
     cy.get("div").contains("Professor Grupo 6").first().find("label").click()
     cy.get("select[id = 'id_status']").select("Aberta")
-    cy.get("input[id = 'id_year']").type(2024)
+    cy.get("input[id = 'id_year']").type(2025)
     cy.get("select[id = 'id_semester']").select("1")
     cy.get("button").contains("Salvar").click()
     cy.contains('p', 'Oferta criada com sucesso!').should('be.visible');

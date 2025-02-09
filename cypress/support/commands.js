@@ -66,14 +66,30 @@ Cypress.Commands.add("registrarDisciplinaDefault", () => {
 
 Cypress.Commands.add("registrarProfessorDefault", () => {
     cy.visit('/people/teacher/create/')
-    
-    
     cy.get('input[id="photoAlt"]').selectFile('cypress/fixtures/image.png')
     cy.get("input[id = 'id_name']").type("Professor Grupo 6")
     cy.get("input[id = 'id_code']").type(Date.now())
     cy.get("select[id = 'id_campus']").select("Pau dos Ferros")
     cy.get("input[id = 'id_email']").type(`grupo6${Date.now()}@email.com`)
     cy.get("button").contains("Salvar").click()
+})
 
 
+Cypress.Commands.add("registrarDiscentesInformacoesGerais", () => {
+    cy.get("select[id='id_course']")
+    .find('option')
+    .contains("Curso teste grupo 6 - Matutino")
+    .eq(0)
+    .then(option => {
+      cy.get("select[id='id_course']").select(option.val());
+    });
+    cy.get("input[id = 'id_reference_period']").type(1)
+    cy.get("label[for = 'sector_NAPNE']").click()
+    cy.get("div").contains("Deficiência Visual - Baixa Visão").find("label").click()
+    cy.get("textarea[id = 'id_personal_history']").type("História")
+    cy.get("textarea[id = 'id_specific_necessities']").type("Necessidades Especificas")
+    cy.get("textarea[id = 'id_abilities']").type("Aptidão Apresentadas")
+    cy.get("textarea[id = 'id_dificulties']").type("Dificuldades Apresentadas")
+    cy.get("textarea[id = 'id_general_necessitie']").type("Outras necessidades educacionais especificas do(a) estudante")
+    cy.get("textarea[id = 'id_creation_reasons']").type("Questões Geradoras para criação do pei/Adaptações")
 })
