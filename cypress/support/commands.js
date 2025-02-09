@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import 'cypress-file-upload';
 
 
 
@@ -43,4 +44,36 @@ Cypress.Commands.add("registrarCursoDefault", () => {
     cy.get("select[id = 'id_duration_type']").select("SEMESTER")
     cy.get("select[id = 'id_course_type']").select("Curso Superior de Tecnologia")
     cy.get("button").contains("Salvar").click()
+})
+
+Cypress.Commands.add("registrarDisciplinaDefault", () => {
+    cy.visit("/academics/subjects/create/");
+    
+    
+    cy.get("input[name = 'name']").type("Informática Básica")
+    cy.contains('div', 'Curso teste grupo 6').first()
+      .find('label')
+      .click();
+    cy.get("label[for = 'Semestral']").click()
+    cy.get("textarea[id = 'id_objective']").type("Objetivos")
+    cy.get("textarea[id = 'id_content']").type("Conteúdo")
+    cy.get("textarea[id = 'id_methodology']").type("Metodologias")
+    cy.get("textarea[id = 'id_resources']").type("Recursos didáticos")
+    cy.get("textarea[id = 'id_assessments']").type("Avaliações")
+
+    cy.contains("button", "Salvar").click()
+})
+
+Cypress.Commands.add("registrarProfessorDefault", () => {
+    cy.visit('/people/teacher/create/')
+    
+    
+    cy.get('input[id="photoAlt"]').selectFile('cypress/fixtures/image.png')
+    cy.get("input[id = 'id_name']").type("Professor Grupo 6")
+    cy.get("input[id = 'id_code']").type(Date.now())
+    cy.get("select[id = 'id_campus']").select("Pau dos Ferros")
+    cy.get("input[id = 'id_email']").type(`grupo6${Date.now()}@email.com`)
+    cy.get("button").contains("Salvar").click()
+
+
 })

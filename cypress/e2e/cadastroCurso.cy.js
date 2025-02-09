@@ -11,7 +11,7 @@ describe('Cadastro de Curos', () => {
   })
 
 
-  it('Sem o campo de nome', () => {
+  it('Inválido - Sem o campo de nome', () => {
 
     cy.get("select[id = 'id_period']").select("MORNING")
     cy.get("input[id = 'id_number_of_periods']").type("7")
@@ -22,7 +22,7 @@ describe('Cadastro de Curos', () => {
   })
 
 
-  it('Sem a duração do curso', () => {
+  it('Inválido - Sem a duração do curso', () => {
 
     cy.get("input[id = 'id_name']").type("Curso teste grupo 6")
     cy.get("select[id = 'id_period']").select("MORNING")
