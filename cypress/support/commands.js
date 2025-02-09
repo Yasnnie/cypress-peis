@@ -74,6 +74,16 @@ Cypress.Commands.add("registrarProfessorDefault", () => {
     cy.get("button").contains("Salvar").click()
 })
 
+Cypress.Commands.add("registrarAlunoDefault", () => {
+    cy.visit('/people/student/create/')
+    cy.get('input[id="id_image"]').selectFile('cypress/fixtures/image.png')
+    cy.get('input[id="id_name"]').type("Aluno Teste 6")
+    cy.get("input[id = 'id_email']").type(`grupo6${Date.now()}@email.com`)
+    cy.get("input[id = 'id_registration']").type(Date.now())
+    cy.registrarDiscentesInformacoesGerais()
+    cy.get("button").contains("Salvar").click()
+})
+
 
 Cypress.Commands.add("registrarDiscentesInformacoesGerais", () => {
     cy.get("select[id='id_course']")
