@@ -41,7 +41,7 @@
 | **Filtrando por turno**                   | Turno: "Noturno"                           | O sistema deverá exibir todos os cursos correspondentes ao turno. |
 
 
-####### Filtros por tipo de curso
+###### Filtros por tipo de curso
 
 | Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
 |-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
@@ -50,7 +50,7 @@
 | **Filtrando por tipo de curso**           | Tipo de curso: "Outros"                   | O sistema deverá exibir todos os cursos correspondentes a entrada. |
 
 
-####### Filtros por turno e tipo de curso
+###### Filtros por turno e tipo de curso
 
 | Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
 |-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
@@ -59,7 +59,7 @@
 | **Filtrando por turno e tipo de curso**   | Turno: "Matutino", Tipo de curso: "" | O sistema deverá exibir todos os cursos do turno “Matutino” independentemente de seu tipo. |
 
 
-####### Filtrando por nome na barra de pesquisa
+###### Filtrando por nome na barra de pesquisa
 
 | Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
 |-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
@@ -77,6 +77,5 @@
 | **Clicar no ícone de lixeira**           | -                                | O sistema deverá exibir um modal de confirmação perguntando ao usuário se ele realmente deseja excluir o curso, ao confirmar, o curso deverá ser excluído. |
 
 ---
-
 
 
