@@ -1,11 +1,9 @@
 # Plano de Teste
-
-## Nome do Projeto
 Sistema de gerenciamento dos Planos Educacionais Individualizados para alunos com necessidades educacionais específicas (PEIs).
 
 ## Alunos
 - José Matheus Bento
-- MICHAEL CESAR FERNANDES LOPES
+- Michael Cesar Fernades Lopes
 - Yasmin Carvalho Targino de Alencar
 
 ## Casos de teste
