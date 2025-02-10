@@ -31,7 +31,7 @@
 
 ###### Filtros para Cursos
 
-####### Filtros por turno
+###### Filtros por turno
 
 | Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
 |-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
@@ -77,5 +77,49 @@
 | **Clicar no ícone de lixeira**           | -                                | O sistema deverá exibir um modal de confirmação perguntando ao usuário se ele realmente deseja excluir o curso, ao confirmar, o curso deverá ser excluído. |
 
 ---
+##### Disciplinas
+
+###### Criando Nova Disciplina
+
+| Cenário                               | Entradas                                                                              | Resultado Esperado                                                                 |
+|---------------------------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| **Entrando com todos os campos válidos** | Nome: "Informática Básica", Cursos: "Curso teste grupo 6", Duração: "Semestral", Objetivos: "Objetivos", Conteúdo Programático: "Conteúdo", Metodologias: "Metodologias", Recursos Didáticos: "Recursos didáticos", Avaliações: "Avaliações" | A disciplina deverá ser criada com sucesso. |
+| **Entrando com todos os campos nulos**  | Nome: "", Cursos: "", Duração: "", Objetivos: "", Conteúdo Programático: "", Metodologias: "", Recursos Didáticos: "", Avaliações: "" | A disciplina não deverá ser criada e o sistema deverá informar que todos os campos devem ser preenchidos. |
+
+###### Filtros para Disciplinas
+
+###### Filtrando por curso
+
+| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
+|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
+| **Filtrando por curso**                   | Curso: "Curso teste grupo 6 - Matutino" | O sistema deverá exibir todas as disciplinas correspondentes ao curso. |
+
+###### Filtrando por duração
+
+| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
+|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
+| **Filtrando por duração**                 | Tipo de curso: "Semestral"          | O sistema deverá exibir todas as disciplinas correspondentes à duração do curso. |
+
+###### Filtrando por nome da disciplina na barra de pesquisa
+
+| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
+|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
+| **Filtrando por nome da disciplina**      | Pesquisa: "Informática Básica"      | O sistema deverá exibir todas as disciplinas correspondentes à entrada. |
+| **Filtrando por nome da disciplina inexistente** | Pesquisa: "inexistente"             | O sistema deverá exibir uma mensagem “Nenhuma disciplina encontrada.”. |
+
+###### Botões de Ação: Visualizar, Editar, Excluir
+
+| Ação                                     | Entrada                          | Resultado Esperado                                                                         |
+|------------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------|
+| **Clicar no ícone de olho**              | -                                | O sistema deverá exibir os detalhes dessa disciplina e dos cursos onde ela está presente. |
+| **Clicar no ícone de edição**            | -                                | O sistema deverá exibir um formulário com os campos da disciplina permitindo a edição dos dados. |
+| **Clicar no ícone de lixeira**           | -                                | O sistema deverá exibir um modal de confirmação perguntando ao usuário se ele realmente deseja excluir a disciplina. Ao confirmar, a disciplina deverá ser excluída. |
+
+###### Editando uma disciplina
+
+| Cenário                               | Entrada                          | Resultado Esperado                                                                         |
+|---------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------|
+| **Editando uma disciplina**           | Clicar no ícone de edição, preencher os campos desejados | Os mesmos resultados dos testes de “Criando uma nova disciplina”. |
+
 
 
