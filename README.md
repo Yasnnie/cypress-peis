@@ -121,5 +121,13 @@
 |---------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------|
 | **Editando uma disciplina**           | Clicar no ícone de edição, preencher os campos desejados | Os mesmos resultados dos testes de “Criando uma nova disciplina”. |
 
+##### Ofertas
+
+###### Cadastrando Nova Oferta
+
+| Cenário                              | Entradas                                                                                  | Resultado Esperado                                                                   |
+|--------------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| **Entrando com todos os campos válidos** | Curso: "Análise e Desenvolvimento de Sistemas", Disciplina: "Programação orientada a objetos", Professores: "Professor", Situação: "Aberta" | A oferta deverá ser criada com sucesso. |
+| **Entrando com um campo ausente**    | Nome: "", Turno: "Matutino", Qtd. Períodos: 8, Duração: "Semestral", Tipo: "Curso superior de tecnologia" | A oferta não deverá ser criada e uma mensagem informando que o preenchimento de todos os campos é necessário deverá ser exibida. |
 
 
