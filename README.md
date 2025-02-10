@@ -42,3 +42,23 @@ Sistema de gerenciamento dos Planos Educacionais Individualizados para alunos co
 | 29  | Editar PEI - Professor   | 1. Na tela inicial clicar em editar<br>2. Preencher campos adaptados<br>3. salvar | "O PEI foi atualizado com sucesso." | Objetivos Adaptados, Conteúdos Adaptados, Metodologias Adaptadas, Recursos didáticos adaptados, Avaliações Adaptadas. | Teste aprovado |
 | 30  | Adicionar Parecer - Professor  | 1. Na tela inicial clicar em editar<br>2. clicar em pareces<br>3. adicionar um parecer<br>4. salvar| "O PEI foi atualizado com sucesso." | Status: "Preenchido", Parecer: "Primeiro Parecer" | Teste aprovado |
 | 31  | Comentar PEI - Coordenador  | Como Coordenador poder comentar no PEI | Aparecer mensagem: Comentário adicionado com sucesso | "Comentário teste" | Teste aprovado |
+
+
+
+## Relatório de Resumo de Teste
+| | Relatório de Resumo de Teste |
+|-----| ------ |
+|Nome do projeto: | Sistema de gerenciamento dos Planos Educacionais Individualizados para alunos com necessidades educacionais específicas (PEIs). | 
+| Data início teste: | 07/02/2025 |
+| Data fim teste: | 09/02/2025|
+|Descrição| Com a criação dos casos de teste previamente facilitou a detecção principalmente em cadastros importantes como registrar discente.| 
+|Pessoas envolvidas |  José Matheus Bento, Michael Cesar Fernades Lopes e Yasmin Carvalho Targino de Alencar |
+|Casos de testes criados antes do teste | 26 |
+|Casos de testes criados durante o teste | 5 |
+| Casos de testes executados | 31 |
+| Casos de teste com sucesso | 27 |
+| Casos de teste com sucesso | 4 |
+|  Percentual | |
+| Casos de testes executados | 100% | 
+| Casos de testes executados com sucesso| |
+|Casos de testes com incidência de erro | |
