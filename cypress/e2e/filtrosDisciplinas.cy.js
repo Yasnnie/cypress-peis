@@ -15,7 +15,12 @@ describe('Filtros disciplinas', () => {
   })
 
   it('Filtrar por curso', () => {
-    cy.get("select[name='courses']").select('Curso teste grupo 6 - Matutino');
+    cy.get("select[name='courses']").find('option')
+    .contains("Curso teste grupo 6 - Matutino")
+    .eq(0)
+    .then(option => {
+      cy.get("select[name='courses']").select(option.val());
+    });
     cy.get("button").contains("Filtrar").click()
     cy.contains("td", "Curso teste grupo 6").should("be.visible")
   })
