@@ -1,133 +1,46 @@
-## Quality Assurance - PEI - Plano Educacional Individualizado
+# Plano de Teste
 
-### Erros
-- O botão "Voltar" na tela para "Cadastrar Novo Curso" não funciona; ele está como um botão para criar um novo curso.
+## Nome do Projeto
+Sistema de gerenciamento dos Planos Educacionais Individualizados para alunos com necessidades educacionais específicas (PEIs).
 
----
+## Alunos
+- José Matheus Bento
+- MICHAEL CESAR FERNANDES LOPES
+- Yasmin Carvalho Targino de Alencar
 
-#### Fluxos Críticos:
-
-| Fluxo                        | Descrição                                                                                  |
-|-------------------------------|--------------------------------------------------------------------------------------------|
-| **Criação de cursos**          | Um coordenador deve conseguir criar um curso para usá-lo futuramente no sistema.            |
-| **Manipulação dos cursos**     | Um coordenador deve ser capaz de manipular os dados referentes a um curso: listar, editar e excluir. |
-| **Criação de disciplinas**     | Um coordenador deve conseguir criar uma disciplina para usá-la futuramente no sistema.      |
-| **Manipulação de disciplinas** | Um coordenador deve ser capaz de manipular os dados referentes a uma disciplina: listar, editar e excluir. |
-| **Cadastro de ofertas**        | Um coordenador deve conseguir cadastrar ofertas de disciplinas para os cursos.             |
-
----
-
-#### Coordinator
-
-##### Cursos
-
-###### Criando Novo Curso
-
-| Cenário                           | Entradas                                                                              | Resultado Esperado                                                                 |
-|-----------------------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Entrando com todos os campos válidos** | Nome: "Curso teste grupo 6", Turno: "Matutino", Qtd. Períodos: 7, Duração: "Semestral", Tipo: "Curso superior de tecnologia" | O curso deverá ser criado com sucesso.                                             |
-| **Entrando com um campo ausente**  | Nome: "", Turno: "Matutino", Qtd. Períodos: 8, Duração: "Semestral", Tipo: "Curso superior de tecnologia" | O curso não deverá ser criado e uma mensagem informando que o preenchimento de todos os campos é necessário deverá ser exibida. |
-| **Entrando com um campo ausente**  | Nome: "", Turno: "Matutino", Qtd. Períodos: 8, Duração: "", Tipo: "Curso superior de tecnologia" | O curso não deverá ser criado e uma mensagem informando que o preenchimento de todos os campos é necessário deverá ser exibida. |
-
-###### Filtros para Cursos
-
-###### Filtros por turno
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por turno**                   | Turno: ""                           | Exibir todos os cursos, independente de seus turnos. |
-| **Filtrando por turno**                   | Turno: "Matutino"                           |  O sistema deverá exibir todos os cursos correspondentes ao turno. |
-| **Filtrando por turno**                   | Turno: "Vespertino"                           | :O sistema deverá exibir todos os cursos correspondentes ao turno. |
-| **Filtrando por turno**                   | Turno: "Noturno"                           | O sistema deverá exibir todos os cursos correspondentes ao turno. |
+## Casos de teste
 
 
-###### Filtros por tipo de curso
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por tipo de curso**           | Tipo de curso: ""                   | O sistema deverá exibir todos os cursos independente de seu tipo.|
-| **Filtrando por tipo de curso**           | Tipo de curso: "Curso Superior de Tecnologia"   |  O sistema deverá exibir todos os cursos do tipo correspondente a entrada.|
-| **Filtrando por tipo de curso**           | Tipo de curso: "Outros"                   | O sistema deverá exibir todos os cursos correspondentes a entrada. |
-
-
-###### Filtros por turno e tipo de curso
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por turno e tipo de curso**   | Turno: "", Tipo de curso: "" | O sistema deverá exibir todos os cursos. |
-| **Filtrando por turno e tipo de curso**   | Turno: "", Tipo de curso: "Engenharia" | O sistema deverá exibir todos os cursos do tipo “Engenharia” independente de seu turno. |
-| **Filtrando por turno e tipo de curso**   | Turno: "Matutino", Tipo de curso: "" | O sistema deverá exibir todos os cursos do turno “Matutino” independentemente de seu tipo. |
-
-
-###### Filtrando por nome na barra de pesquisa
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por turno e tipo de curso**   | Pesquisa: "" | O sistema deverá exibir todos os cursos. |
-| **Filtrando por turno e tipo de curso**   | Pesquisa: "Alimentos" | O sistema deverá exibir todos os cursos correspondentes a entrada. |
-| **Filtrando por turno e tipo de curso**   | Pesquisa: "A"  | O sistema deverá exibir todos os cursos que contenham em seu nome o caractere informado na barra de pesquisa. |
-| **Filtrando por turno e tipo de curso**   | Pesquisa: "Alimentos Técnico Integrado Michael"  |  O sistema não deverá exibir nenhum curso, uma vez que a entrada maior e com “Michael” que não é esperado e nem corresponde a nenhum curso está presente na string de pesquisa. |
-
-###### Botões de Ação: Visualizar, Editar, Excluir
-
-| Ação                                     | Entrada                          | Resultado Esperado                                                                         |
-|------------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------|
-| **Clicar no ícone de olho**              | -                                | O sistema deverá exibir os detalhes desse curso e suas disciplinas.                              |
-| **Clicar no ícone de edição**            | -                                | O sistema deverá exibir um formulário com os campos do curso permitindo a edição dos dados.      |
-| **Clicar no ícone de lixeira**           | -                                | O sistema deverá exibir um modal de confirmação perguntando ao usuário se ele realmente deseja excluir o curso, ao confirmar, o curso deverá ser excluído. |
-
----
-##### Disciplinas
-
-###### Criando Nova Disciplina
-
-| Cenário                               | Entradas                                                                              | Resultado Esperado                                                                 |
-|---------------------------------------|--------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **Entrando com todos os campos válidos** | Nome: "Informática Básica", Cursos: "Curso teste grupo 6", Duração: "Semestral", Objetivos: "Objetivos", Conteúdo Programático: "Conteúdo", Metodologias: "Metodologias", Recursos Didáticos: "Recursos didáticos", Avaliações: "Avaliações" | A disciplina deverá ser criada com sucesso. |
-| **Entrando com todos os campos nulos**  | Nome: "", Cursos: "", Duração: "", Objetivos: "", Conteúdo Programático: "", Metodologias: "", Recursos Didáticos: "", Avaliações: "" | A disciplina não deverá ser criada e o sistema deverá informar que todos os campos devem ser preenchidos. |
-
-###### Filtros para Disciplinas
-
-###### Filtrando por curso
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por curso**                   | Curso: "Curso teste grupo 6 - Matutino" | O sistema deverá exibir todas as disciplinas correspondentes ao curso. |
-
-###### Filtrando por duração
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por duração**                 | Tipo de curso: "Semestral"          | O sistema deverá exibir todas as disciplinas correspondentes à duração do curso. |
-
-###### Filtrando por nome da disciplina na barra de pesquisa
-
-| Cenário de Teste                          | Entrada (Filtro)                    | Resultado Esperado                                                                 |
-|-------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------|
-| **Filtrando por nome da disciplina**      | Pesquisa: "Informática Básica"      | O sistema deverá exibir todas as disciplinas correspondentes à entrada. |
-| **Filtrando por nome da disciplina inexistente** | Pesquisa: "inexistente"             | O sistema deverá exibir uma mensagem “Nenhuma disciplina encontrada.”. |
-
-###### Botões de Ação: Visualizar, Editar, Excluir
-
-| Ação                                     | Entrada                          | Resultado Esperado                                                                         |
-|------------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------|
-| **Clicar no ícone de olho**              | -                                | O sistema deverá exibir os detalhes dessa disciplina e dos cursos onde ela está presente. |
-| **Clicar no ícone de edição**            | -                                | O sistema deverá exibir um formulário com os campos da disciplina permitindo a edição dos dados. |
-| **Clicar no ícone de lixeira**           | -                                | O sistema deverá exibir um modal de confirmação perguntando ao usuário se ele realmente deseja excluir a disciplina. Ao confirmar, a disciplina deverá ser excluída. |
-
-###### Editando uma disciplina
-
-| Cenário                               | Entrada                          | Resultado Esperado                                                                         |
-|---------------------------------------|----------------------------------|---------------------------------------------------------------------------------------------------|
-| **Editando uma disciplina**           | Clicar no ícone de edição, preencher os campos desejados | Os mesmos resultados dos testes de “Criando uma nova disciplina”. |
-
-##### Ofertas
-
-###### Cadastrando Nova Oferta
-
-| Cenário                              | Entradas                                                                                  | Resultado Esperado                                                                   |
-|--------------------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| **Entrando com todos os campos válidos** | Curso: "Análise e Desenvolvimento de Sistemas", Disciplina: "Programação orientada a objetos", Professores: "Professor", Situação: "Aberta" | A oferta deverá ser criada com sucesso. |
-| **Entrando com um campo ausente**    | Nome: "", Turno: "Matutino", Qtd. Períodos: 8, Duração: "Semestral", Tipo: "Curso superior de tecnologia" | A oferta não deverá ser criada e uma mensagem informando que o preenchimento de todos os campos é necessário deverá ser exibida. |
-
-
+| ID  | Descrição (Nome do Teste) | Roteiro | Resultado Esperado | Valores de Entrada | Resultado do Teste|
+| --- | --------------------------|---------| -------------------| ------------------ | ----------------- |
+| 1   | Teste de Login Professor | Realizar o login com um email e senha válidos para o professor.| O usuário é redirecionado para a página inicial (dashboard). | Email: `tester_professor@gmail.com`, Senha: `123deoliveira4` | - |
+| 2   | Teste de Login Coordenador | Realizar o login com um email e senha válidos para o coordenador. | O usuário é redirecionado para a página inicial (dashboard).| Email: `tester_coordinator@gmail.com`, Senha: `123deoliveira4` | - |
+| 3   | Teste de Cadastro de Curso - Todos os campos válidos | Registrar um curso com todos os campos válidos preenchidos. | O curso é registrado com sucesso e a mensagem de sucesso é exibida.  | Nome: "Curso teste grupo 6", Período: "MORNING", Número de períodos: "7", Tipo de duração: "SEMESTER", Tipo de curso: "Curso Superior de Tecnologia" | - |
+| 4   | Teste de Cadastro de Curso - Sem o campo de nome | Tentar registrar um curso sem preencher o campo de nome.| O sistema exibe a mensagem de erro para o campo de nome obrigatório.  | Período: "MORNING", Número de períodos: "7", Tipo de duração: "SEMESTER", Tipo de curso: "Curso Superior de Tecnologia" | -  |
+| 5   | Teste de Cadastro de Curso - Sem a duração do curso | Tentar registrar um curso sem preencher o campo de duração.| O sistema exibe a mensagem de erro para o campo de duração obrigatório. | Nome: "Curso teste grupo 6", Período: "MORNING", Número de períodos: "7", Tipo de duração: "SEMESTER", Tipo de curso: "Curso Superior de Tecnologia" | - |
+| 6   | Teste de Cadastro de Curso - Quantidade de tempo por duração - Semestral | Registrar um curso com duração semestral e verificar o número de períodos. | O campo de número de períodos deve ser preenchido com o valor 7.      | Nome: "Curso teste grupo 6", Período: "MORNING", Número de períodos: "7", Tipo de duração: "SEMESTER", Tipo de curso: "Curso Superior de Tecnologia" | - |
+| 7   | Teste de Cadastro de Curso - Quantidade de tempo por duração - Anual | Registrar um curso com duração anual e verificar o número de períodos.  | O campo de número de períodos deve ser preenchido com o valor 4. | Nome: "Curso teste grupo 6", Período: "MORNING", Número de períodos: "7", Tipo de duração: "YEAR", Tipo de curso: "Curso Superior de Tecnologia" | -  |
+| 8   | Teste de Cadastro de Disciplina - Todos os campos nulos | Tentar registrar uma disciplina sem preencher nenhum campo. | O sistema exibe a mensagem de erro para os campos obrigatórios. | Nenhum campo preenchido. | - |
+| 9   | Teste de Cadastro de Disciplina - Todos os campos válidos | Registrar uma disciplina com todos os campos válidos preenchidos. | A disciplina é registrada com sucesso e a mensagem de sucesso é exibida. | Nome da disciplina: "Informática Básica", Curso: "Curso teste grupo 6", Metodologia, Objetivo, Conteúdo e Avaliações preenchidos. | - |
+| 10  | Teste de Cadastro de Oferta - Todos os campos válidos  | Registrar uma oferta com todos os campos válidos preenchidos.                                              | A oferta é registrada com sucesso e a mensagem de sucesso é exibida.  | Curso: "Curso teste grupo 6 - Matutino", Disciplina: "Informática Básica", Professor: "Professor Grupo 6", Status: "Aberta", Ano: 2025, Semestre: "1" | -                                                   |
+| 11  | Teste de Filtros de Disciplinas - Filtrar por nome não existente | Tentar filtrar disciplinas usando um nome que não existe. | O sistema exibe a mensagem "Nenhuma disciplina encontrada". | Nome do filtro: "inexistente" | Teste reprovado - aparece o texto `Nenhuma disciplina cadastrada.` onde deveria aparece `Nenhuma disciplina encontrada.` |
+| 12  | Teste de Filtros de Disciplinas - Filtrar por nome existente | Filtrar disciplinas usando um nome que existe. | O sistema exibe a disciplina filtrada.  | Nome do filtro: "Informática Básica" |  Teste aprovado  |
+| 13  | Teste de Filtros de Disciplinas - Filtrar por curso    | Filtrar disciplinas por curso. | O sistema exibe as disciplinas do curso filtrado. | Curso do filtro: "Curso teste grupo 6 - Matutino" |  Teste aprovado  |
+| 14  | Teste de Filtros de Disciplinas - Filtrar por duração  | Filtrar disciplinas por tipo de duração. | O sistema exibe as disciplinas com o tipo de duração filtrado. | Tipo de duração do filtro: `SEMESTER` |  Teste aprovado  |
+| 15  | Teste de Cadastro de Docentes - Todos os campos nulos  | Tentar cadastrar um docente sem preencher nenhum campo. | O sistema exibe a mensagem de erro para os campos obrigatórios. | Nenhum campo preenchido. | Teste aprovado  |
+| 16  | Teste de Cadastro de Docentes - Todos os campos válidos | Cadastrar um docente com todos os campos válidos preenchidos. | O docente é cadastrado com sucesso e a mensagem de sucesso é exibida.   | Foto: 'cypress/fixtures/image.png', Nome: "Professor Grupo 6", Matrícula: "20221094040070", Campus: "Pau dos Ferros", E-mail: `grupo6@email.com` | Teste aprovado |
+| 17  | Teste de Cadastro de Docentes - E-mail já existente    | Tentar cadastrar um docente com um e-mail já existente.                                                   | O sistema exibe a mensagem de erro para o e-mail existente. | Foto: 'cypress/fixtures/image.png', Nome: "Professor Grupo 6", Matrícula: "20221094040070", Campus: "Pau dos Ferros", E-mail: `grupo6@email.com` | Teste aprovado |
+| 18  | Teste de Cadastro de Docentes - Matrícula já existente | Tentar cadastrar um docente com uma matrícula já existente. | O sistema exibe a mensagem de erro para a matrícula existente.  | Foto: 'cypress/fixtures/image.png', Nome: "Professor Grupo 6", Matrícula: "20221094040070", Campus: "Pau dos Ferros", E-mail: `grupo6@email.com` | Teste aprovado |
+| 19  | Teste de Cadastro de Docentes - Docente sem foto       | Tentar cadastrar um docente sem fornecer uma foto. | O sistema exibe a mensagem de erro para o campo de foto obrigatório. | Nome: "Professor Grupo 6", Matrícula: "20221094040070", Campus: "Pau dos Ferros", E-mail: `grupo6@email.com` | Teste reprovado - É possível cadastrar um docente sem foto |
+| 20  | Teste de Cadastro de Discentes - Todos os campos válidos | Registrar um discente com todos os campos válidos preenchidos. | O discente é registrado com sucesso e a mensagem de sucesso é exibida. | Nome: "Aluno Teste 6", E-mail: `grupo6@email.com`, Matrícula: `20221094040070`, Foto: `cypress/fixtures/image.png` | Teste aprovado |
+| 21  | Teste de Cadastro de Discentes - E-mail já existente   | Tentar cadastrar um discente com um e-mail já existente. | O sistema exibe a mensagem de erro para o e-mail existente. | Nome: "Aluno Teste 6", E-mail: `grupo63@email.com`, Matrícula: `17391386664963`, Foto: `cypress/fixtures/image.png` | Teste aprovado |
+| 22  | Teste de Cadastro de Discentes - Matrícula já existente | Tentar cadastrar um discente com uma matrícula já existente. | O sistema exibe a mensagem de erro para a matrícula existente. | Nome: "Aluno Teste 6", E-mail: `grupo6${Date.now()}@email.com`, Matrícula: `20221094040070`, Foto: `cypress/fixtures/image.png` | Teste reprovado - É possível criar mais de 1 discente com a mesma matrícula  |
+| 23  | Teste de Excluir Discente - Excluir Aluno Associado a uma oferta | Tentar excluir um aluno que está associado a uma oferta. | O sistema exibe a mensagem "Não é possível excluir o aluno, pois ele possui ofertas associadas." | Aluno: "Aluno Teste 6" | Teste aprovado |
+| 24  | Teste de Excluir Discente - Excluir Aluno | Excluir um aluno que não está associado a nenhuma oferta. | O sistema exibe a mensagem de sucesso "O aluno foi excluído com sucesso." | Aluno: `"Aluno Teste 6"` | Teste aprovado |
+| 25  | Excluir Docente | Buscar professor "Professor Grupo 6", tentar excluí-lo. | "O professor foi excluído com sucesso."| Nome: "Professor Grupo 6" | Teste aprovado |
+| 26  | Excluir Docente associado a uma oferta  | Buscar professor "Professor Tester", tentar excluí-lo enquanto associado a uma oferta. | "O professor não pode ser excluído pois está associado a alguma oferta." | Nome: "Professor Tester"  | Teste reprovado - invés de aparecer uma mensagem de erro, o site redireciona para a tela de erro 500, não informando de maneira claro o que aconteceu. |
+| 27  | Gerar PEI  | 1. Acessar a página https://pei-hmg.nadic.ifrn.edu.br/academics/offers/detail/{id}/ de uma oferta cadastrada anteriormente e com alunos disponiveis no curso da oferta<br>2. Digitar nome de um discente<br>3. Clicar em Incluir <br>4. Voltar a tela inicial https://pei-hmg.nadic.ifrn.edu.br/ e verificar o último PEIs Criado| Aparecer o novo PEI na listagem da Home | Selecionar "Aluno Teste 6" | Teste aprovado |
+| 28  | Visualizar PEI - Professor | Login como "tester_professor@gmail.com", clicar no primeiro link de PEI. | "Detalhes do PEI" | Login: "tester_professor@gmail.com" | Teste aprovado |
+| 29  | Editar PEI - Professor   | 1. Na tela inicial clicar em editar<br>2. Preencher campos adaptados<br>3. salvar | "O PEI foi atualizado com sucesso." | Objetivos Adaptados, Conteúdos Adaptados, Metodologias Adaptadas, Recursos didáticos adaptados, Avaliações Adaptadas. | Teste aprovado |
+| 30  | Adicionar Parecer - Professor  | 1. Na tela inicial clicar em editar<br>2. clicar em pareces<br>3. adicionar um parecer<br>4. salvar| "O PEI foi atualizado com sucesso." | Status: "Preenchido", Parecer: "Primeiro Parecer" | Teste aprovado |
+| 31  | Comentar PEI - Coordenador  | Como Coordenador poder comentar no PEI | Aparecer mensagem: Comentário adicionado com sucesso | "Comentário teste" | Teste aprovado |
